@@ -8,53 +8,39 @@
 
 #import "MADataSource.h"
 
-#define kAPI_KEY @"bfjwrz7p5hzam6t79xbwhvpx"
-#define kBaseURI @"http://api.rottentomatoes.com/api/public/v1.0"
+static const NSString* kAPI_KEY = @"bfjwrz7p5hzam6t79xbwhvpx";
+static const NSString* kBaseURI = @"http://api.rottentomatoes.com/api/public/v1.0/";
 
-#define kMoviesPath @"movies.json"
-#define kMoviesSearch @"q"
-#define kMoviesPageLimit @"page_limit"
-#define kMoviesPage @"page"
+static const NSString* kMoviesPath = @"movies.json";
+static const NSString* kMoviesSearch = @"q";
+static const NSString* kMoviesPageLimit = @"page_limit";
+static const NSString* kMoviesPage = @"page";
 
-#define kBoxOfficePath @"lists/movies/box_office.json"
+static const NSString* kBoxOfficePath = @"lists/movies/box_office.json";
 
 @implementation MADataSource
 
--(NSData*) rottenTomatoesDataForPath:(NSString*)relativePath params:(NSDictionary*)params{
+-(NSURL*) rottenTomatoesUrlForPath:(NSString*)relativePath params:(NSDictionary*) params {
     
-    NSMutableString *urlString = [NSMutableString stringWithString:[kBaseURI stringByAppendingPathComponent:relativePath]];
+    // Create a new mutable string starting with our base URI
+    NSMutableString *urlString = [NSMutableString stringWithString:(NSString*)kBaseURI];
     
+    // Append the relative path and our api key
+    [urlString appendString:relativePath];
     [urlString appendFormat:@"?apikey=%@",kAPI_KEY];
     
+    // Append all params in the dictionary as key = obj
     [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [urlString appendFormat:@"&%@=%@",key,obj];
+        [urlString appendFormat:@"&%@=%@", key, obj];
     }];
     
-    return [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-}
-
--(NSDictionary *) infoDictForCellAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *baseDict = self.dataArray[indexPath.row];
-    NSDictionary *returnDict;
-    
-    switch (self.dataType) {
-        case kDataTypeMovie:
-            returnDict = @{kInfoTitle: baseDict[@"title"],
-                           kInfoSubtitle: [baseDict[@"year"] description],
-                           kInfoImage: baseDict[@"posters"][@"thumbnail"]};
-            break;
-            
-        default:
-            break;
-    }
-    
-    return returnDict;
+    return [NSURL URLWithString:urlString];
 }
 
 #pragma mark - BoxOffice
 
 -(void) loadBoxOfficeData:(MACallBackBlock)callback {
-    self.dataType = kDataTypeMovie;
+    self.dataType = kDataTypeMovieList;
     self.dataArray = [self boxOfficeArray];
     
     if (callback) {
@@ -63,8 +49,10 @@
 }
 
 -(NSArray*) boxOfficeArray {
-    NSData *moviesData = [self rottenTomatoesDataForPath:kBoxOfficePath params:nil];
+    // Load data from the properly formed URL
+    NSData *moviesData = [NSData dataWithContentsOfURL:[self rottenTomatoesUrlForPath:(NSString*)kBoxOfficePath params:nil]];
 
+    // Transform data into a NSDictionary with NSJSONSerialization
     NSError *error;
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:moviesData options:0 error:&error];
     
@@ -72,6 +60,7 @@
         NSLog(@"Error getting movies : %@", error.localizedDescription);
     }
     
+    // The movie list is under the key 'movies' (cf API doc) in the response so only return this part
     return jsonDict[@"movies"];
 }
 
@@ -85,11 +74,29 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UITableViewCell alloc] init];
+    return nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+-(NSDictionary *) infoDictForCellAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *baseDict = self.dataArray[indexPath.row];
+    NSDictionary *returnDict;
+    
+    switch (self.dataType) {
+        case kDataTypeMovieList:
+            returnDict = @{kInfoTitle: baseDict[@"title"],
+                           kInfoSubtitle: [baseDict[@"year"] description],
+                           kInfoImageURL: baseDict[@"posters"][@"thumbnail"]};
+            break;
+            
+        default:
+            break;
+    }
+    
+    return returnDict;
 }
 
 

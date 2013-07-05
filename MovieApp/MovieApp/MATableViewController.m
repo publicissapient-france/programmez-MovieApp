@@ -62,7 +62,7 @@
     
     cell.titleLabel.text = infoDict[kInfoTitle];
     cell.subtitleLabel.text = infoDict[kInfoSubtitle];
-    cell.thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:infoDict[kInfoImage]]]];
+    cell.thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:infoDict[kInfoImageURL]]]];
     
     return cell;
 }

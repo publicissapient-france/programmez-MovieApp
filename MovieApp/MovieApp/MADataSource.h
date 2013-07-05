@@ -11,12 +11,13 @@
 typedef void(^MACallBackBlock)(void);
 
 typedef enum {
-    kDataTypeMovie
+    kDataTypeMovieList,
+    kDataTypeMovieSingle
 } kDataType;
 
-#define kInfoTitle @"title"
-#define kInfoSubtitle @"subtitle"
-#define kInfoImage @"image"
+static const NSString* kInfoTitle = @"title";
+static const NSString* kInfoSubtitle = @"subtitle";
+static const NSString* kInfoImageURL = @"image";
 
 @interface MADataSource : NSObject <UITableViewDataSource>
 
