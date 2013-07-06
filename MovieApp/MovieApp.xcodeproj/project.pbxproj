@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BF4850C17889A2F00C2C57D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF4850B17889A2F00C2C57D /* Icon.png */; };
+		5BF4850E17889A3C00C2C57D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF4850D17889A3C00C2C57D /* Icon@2x.png */; };
 		8AC0D0DC1786FDE500352E10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DB1786FDE500352E10 /* UIKit.framework */; };
 		8AC0D0DE1786FDE500352E10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DD1786FDE500352E10 /* Foundation.framework */; };
 		8AC0D0E01786FDE500352E10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DF1786FDE500352E10 /* CoreGraphics.framework */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BF4850B17889A2F00C2C57D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		5BF4850D17889A3C00C2C57D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		8AC0D0D81786FDE500352E10 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC0D0DB1786FDE500352E10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AC0D0DD1786FDE500352E10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +66,8 @@
 		8AC0D0CF1786FDE500352E10 = {
 			isa = PBXGroup;
 			children = (
+				5BF4850D17889A3C00C2C57D /* Icon@2x.png */,
+				5BF4850B17889A2F00C2C57D /* Icon.png */,
 				8AC0D0E11786FDE500352E10 /* MovieApp */,
 				8AC0D0DA1786FDE500352E10 /* Frameworks */,
 				8AC0D0D91786FDE500352E10 /* Products */,
@@ -173,6 +179,8 @@
 				8AC0D0F01786FDE500352E10 /* Default@2x.png in Resources */,
 				8AC0D0F21786FDE500352E10 /* Default-568h@2x.png in Resources */,
 				8AC0D0FC178703EB00352E10 /* Storyboard.storyboard in Resources */,
+				5BF4850C17889A2F00C2C57D /* Icon.png in Resources */,
+				5BF4850E17889A3C00C2C57D /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +310,7 @@
 				8AC0D0F71786FDE500352E10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
