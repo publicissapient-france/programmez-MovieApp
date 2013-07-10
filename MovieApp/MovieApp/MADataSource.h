@@ -19,7 +19,7 @@ static const NSString* kInfoTitle = @"title";
 static const NSString* kInfoSubtitle = @"subtitle";
 static const NSString* kInfoImageURL = @"image";
 
-@interface MADataSource : NSObject <UITableViewDataSource>
+@interface MADataSource : NSObject
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, readwrite) kDataType dataType;

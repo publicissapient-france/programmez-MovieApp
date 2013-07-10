@@ -34,6 +34,8 @@ static const NSString* kBoxOfficePath = @"lists/movies/box_office.json";
         [urlString appendFormat:@"&%@=%@", key, obj];
     }];
     
+    NSLog(@"Loading data from : '%@'", urlString);
+    
     return [NSURL URLWithString:urlString];
 }
 
@@ -49,8 +51,17 @@ static const NSString* kBoxOfficePath = @"lists/movies/box_office.json";
 }
 
 -(NSArray*) boxOfficeArray {
+    
+    // Retrieve the current user country code
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+    
+    // Create the params dictionary
+    NSDictionary *params = @{@"country": countryCode,
+                             @"limit": @20};
+    
     // Load data from the properly formed URL
-    NSData *moviesData = [NSData dataWithContentsOfURL:[self rottenTomatoesUrlForPath:(NSString*)kBoxOfficePath params:nil]];
+    NSData *moviesData = [NSData dataWithContentsOfURL:[self rottenTomatoesUrlForPath:(NSString*)kBoxOfficePath params:params]];
 
     // Transform data into a NSDictionary with NSJSONSerialization
     NSError *error;
@@ -62,23 +73,6 @@ static const NSString* kBoxOfficePath = @"lists/movies/box_office.json";
     
     // The movie list is under the key 'movies' (cf API doc) in the response so only return this part
     return jsonDict[@"movies"];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataArray count];
-}
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 -(NSDictionary *) infoDictForCellAtIndexPath:(NSIndexPath *)indexPath {
