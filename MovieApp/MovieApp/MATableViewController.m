@@ -58,7 +58,7 @@
     MAMovieCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *infoDict = [self.dataSource infoDictForCellAtIndexPath:indexPath];
+    NSDictionary *infoDict = [self.dataSource infoDictForItemAtIndex:indexPath.row];
     
     cell.titleLabel.text = infoDict[kInfoTitle];
     cell.subtitleLabel.text = infoDict[kInfoSubtitle];

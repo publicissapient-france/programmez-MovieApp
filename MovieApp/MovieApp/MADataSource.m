@@ -75,8 +75,8 @@ static const NSString* kBoxOfficePath = @"lists/movies/box_office.json";
     return jsonDict[@"movies"];
 }
 
--(NSDictionary *) infoDictForCellAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *baseDict = self.dataArray[indexPath.row];
+-(NSDictionary *) infoDictForItemAtIndex:(NSInteger)index {
+    NSDictionary *baseDict = self.dataArray[index];
     NSDictionary *returnDict;
     
     switch (self.dataType) {

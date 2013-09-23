@@ -25,6 +25,6 @@ static const NSString* kInfoImageURL = @"image";
 @property (nonatomic, readwrite) kDataType dataType;
 
 -(void) loadBoxOfficeData:(MACallBackBlock)callback;
--(NSDictionary*) infoDictForCellAtIndexPath:(NSIndexPath*)indexPath;
+-(NSDictionary *) infoDictForItemAtIndex:(NSInteger)index;
 
 @end
