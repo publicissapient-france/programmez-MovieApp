@@ -12,6 +12,4 @@
 
 @interface MATableViewController : UITableViewController
 
-@property (nonatomic, strong) MADataSource* dataSource;
-
 @end

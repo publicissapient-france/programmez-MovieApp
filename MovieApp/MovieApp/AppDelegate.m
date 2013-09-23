@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MADataSource.h"
 
 @implementation AppDelegate
 

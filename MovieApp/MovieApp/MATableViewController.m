@@ -7,10 +7,16 @@
 //
 
 #import "MATableViewController.h"
-#import "MADataSource.h"
 #import "MAMovieCell.h"
+#import "MAMovieAppAPIClient.h"
+#import "MAMovie.h"
+#import "UIImageView+AFNetworking.h"
+#import "MAPosters.h"
 
 @interface MATableViewController ()
+
+// TODO: explain
+@property (nonatomic, strong) NSArray *movies;
 
 @end
 
@@ -19,9 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.dataSource = [[MADataSource alloc] init];
-    [self.dataSource loadBoxOfficeData:^{
+
+    [[MAMovieAppAPIClient sharedClient] downloadBoxOfficeWithCallback:^(NSArray *array) {
+        self.movies = array;
         [self.tableView reloadData];
     }];
 
@@ -49,7 +55,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.dataSource.dataArray count];
+    return [self.movies count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,12 +63,11 @@
     static NSString *CellIdentifier = @"MovieCell";
     MAMovieCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    NSDictionary *infoDict = [self.dataSource infoDictForItemAtIndex:indexPath.row];
-    
-    cell.titleLabel.text = infoDict[kInfoTitle];
-    cell.subtitleLabel.text = infoDict[kInfoSubtitle];
-    cell.thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:infoDict[kInfoImageURL]]]];
+    MAMovie *movie = self.movies[indexPath.row];
+    cell.titleLabel.text = movie.title;
+    cell.subtitleLabel.text = [movie.year stringValue];
+
+    [cell.thumbnail setImageWithURL:[NSURL URLWithString:movie.posters.thumbnail] placeholderImage:nil];
     
     return cell;
 }
