@@ -12,6 +12,7 @@
 #import "MAMovie.h"
 #import "UIImageView+AFNetworking.h"
 #import "MAPosters.h"
+#import "MAMovieDetailsViewController.h"
 
 @interface MATableViewController ()
 
@@ -122,6 +123,17 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"MAShowMovieDetails"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        MAMovie *aMovie = [self.movies objectAtIndex:indexPath.row];
+        
+        MAMovieDetailsViewController *vc = [segue destinationViewController];
+        vc.movie = aMovie;
+    }
 }
 
 @end
