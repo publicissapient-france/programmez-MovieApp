@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MAMovie;
+
 @interface MAMovieDetailsViewController : UIViewController
+
+@property (nonatomic, strong) MAMovie *movie;
 
 @end
