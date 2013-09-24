@@ -12,6 +12,8 @@
 		42BC2D5317F0FC8B004104E3 /* MAMovieAppAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC2D5217F0FC8B004104E3 /* MAMovieAppAPIClient.m */; };
 		5BF4850C17889A2F00C2C57D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF4850B17889A2F00C2C57D /* Icon.png */; };
 		5BF4850E17889A3C00C2C57D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF4850D17889A3C00C2C57D /* Icon@2x.png */; };
+		5BFCFE5F17F1795D007147FE /* MAMovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCFE5E17F1795D007147FE /* MAMovieDetailsViewController.m */; };
+		5BFCFE6717F17D3B007147FE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFCFE6617F17D3B007147FE /* Storyboard.storyboard */; };
 		8AC0D0DC1786FDE500352E10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DB1786FDE500352E10 /* UIKit.framework */; };
 		8AC0D0DE1786FDE500352E10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DD1786FDE500352E10 /* Foundation.framework */; };
 		8AC0D0E01786FDE500352E10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC0D0DF1786FDE500352E10 /* CoreGraphics.framework */; };
@@ -21,7 +23,6 @@
 		8AC0D0EE1786FDE500352E10 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC0D0ED1786FDE500352E10 /* Default.png */; };
 		8AC0D0F01786FDE500352E10 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC0D0EF1786FDE500352E10 /* Default@2x.png */; };
 		8AC0D0F21786FDE500352E10 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC0D0F11786FDE500352E10 /* Default-568h@2x.png */; };
-		8AC0D0FC178703EB00352E10 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC0D0FB178703EB00352E10 /* Storyboard.storyboard */; };
 		8AC0D0FF1787040A00352E10 /* MATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0D0FE1787040A00352E10 /* MATableViewController.m */; };
 		8AC0D1021787044700352E10 /* MAMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0D1011787044600352E10 /* MAMovieCell.m */; };
 		BCB0016035684878A4C17B4C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E32461618D4DF5AB65D599 /* libPods.a */; };
@@ -36,6 +37,9 @@
 		42BC2D5217F0FC8B004104E3 /* MAMovieAppAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMovieAppAPIClient.m; sourceTree = "<group>"; };
 		5BF4850B17889A2F00C2C57D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		5BF4850D17889A3C00C2C57D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		5BFCFE5D17F1795D007147FE /* MAMovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAMovieDetailsViewController.h; sourceTree = "<group>"; };
+		5BFCFE5E17F1795D007147FE /* MAMovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMovieDetailsViewController.m; sourceTree = "<group>"; };
+		5BFCFE6617F17D3B007147FE /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = MovieApp/Storyboard.storyboard; sourceTree = "<group>"; };
 		8AC0D0D81786FDE500352E10 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AC0D0DB1786FDE500352E10 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AC0D0DD1786FDE500352E10 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,7 +53,6 @@
 		8AC0D0ED1786FDE500352E10 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8AC0D0EF1786FDE500352E10 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8AC0D0F11786FDE500352E10 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8AC0D0FB178703EB00352E10 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8AC0D0FD1787040A00352E10 /* MATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MATableViewController.h; sourceTree = "<group>"; };
 		8AC0D0FE1787040A00352E10 /* MATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MATableViewController.m; sourceTree = "<group>"; };
 		8AC0D1001787044600352E10 /* MAMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAMovieCell.h; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		8AC0D0CF1786FDE500352E10 = {
 			isa = PBXGroup;
 			children = (
+				5BFCFE6617F17D3B007147FE /* Storyboard.storyboard */,
 				5BF4850D17889A3C00C2C57D /* Icon@2x.png */,
 				5BF4850B17889A2F00C2C57D /* Icon.png */,
 				8AC0D0E11786FDE500352E10 /* MovieApp */,
@@ -128,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				42BC2D5017F0FC8B004104E3 /* Networking */,
-				8AC0D0FB178703EB00352E10 /* Storyboard.storyboard */,
 				8AC0D0EA1786FDE500352E10 /* AppDelegate.h */,
 				8AC0D0EB1786FDE500352E10 /* AppDelegate.m */,
 				8AC0D0E21786FDE500352E10 /* Supporting Files */,
@@ -137,6 +140,8 @@
 				8AC0D1001787044600352E10 /* MAMovieCell.h */,
 				8AC0D1011787044600352E10 /* MAMovieCell.m */,
 				2EE44755DD26B3A0711340C6 /* Models */,
+				5BFCFE5D17F1795D007147FE /* MAMovieDetailsViewController.h */,
+				5BFCFE5E17F1795D007147FE /* MAMovieDetailsViewController.m */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -212,8 +217,8 @@
 				8AC0D0EE1786FDE500352E10 /* Default.png in Resources */,
 				8AC0D0F01786FDE500352E10 /* Default@2x.png in Resources */,
 				8AC0D0F21786FDE500352E10 /* Default-568h@2x.png in Resources */,
-				8AC0D0FC178703EB00352E10 /* Storyboard.storyboard in Resources */,
 				5BF4850C17889A2F00C2C57D /* Icon.png in Resources */,
+				5BFCFE6717F17D3B007147FE /* Storyboard.storyboard in Resources */,
 				5BF4850E17889A3C00C2C57D /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +267,7 @@
 				8AC0D0E81786FDE500352E10 /* main.m in Sources */,
 				8AC0D0EC1786FDE500352E10 /* AppDelegate.m in Sources */,
 				8AC0D0FF1787040A00352E10 /* MATableViewController.m in Sources */,
+				5BFCFE5F17F1795D007147FE /* MAMovieDetailsViewController.m in Sources */,
 				8AC0D1021787044700352E10 /* MAMovieCell.m in Sources */,
 				2EE44EF588085EEFB75090E6 /* MAMovie.m in Sources */,
 				2EE44A0A844F7D1DF8583F06 /* MAPosters.m in Sources */,

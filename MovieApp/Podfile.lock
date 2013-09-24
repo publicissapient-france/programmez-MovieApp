@@ -1,0 +1,26 @@
+PODS:
+  - AFNetworking (1.3.1)
+  - DCKeyValueObjectMapping (1.4)
+  - JSONKit (1.5pre)
+  - Underscore.m (0.2.0)
+  - XBToolkit (0.0.11):
+    - AFNetworking (= 1.3.1)
+    - DCKeyValueObjectMapping (= 1.4)
+    - JSONKit (= 1.5pre)
+    - Underscore.m (= 0.2.0)
+
+DEPENDENCIES:
+  - XBToolkit (from `https://raw.github.com/xebia-france/XBToolkit/master/XBToolkit.podspec`)
+
+EXTERNAL SOURCES:
+  XBToolkit:
+    :podspec: https://raw.github.com/xebia-france/XBToolkit/master/XBToolkit.podspec
+
+SPEC CHECKSUMS:
+  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
+  DCKeyValueObjectMapping: 39adaf0a54ff6368a22d9221db60f0696d81ad7b
+  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
+  Underscore.m: a1363c047e21e601dcabc16abd6faf9413cf4290
+  XBToolkit: a552564e4329157dd7375b2e0dd5bbe9f4aaa5c1
+
+COCOAPODS: 0.25.0
