@@ -1,2 +1,2 @@
-platform :ios, 						'5.0'
-pod 'XBToolkit', :podspec => 'https://raw.github.com/xebia-france/XBToolkit/master/XBToolkit.podspec'
+platform :ios, 						'6.0'
+pod 'XBToolkit', '0.0.11'

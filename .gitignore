@@ -17,3 +17,8 @@ profile
 DerivedData
 .idea/
 MovieApp/Pods
+<<<<<<< HEAD
+Podfile.lock
+=======
+Podfile.lock
+>>>>>>> 3ce449216ec676f309dbccc2383e3a46cdb53ccc
