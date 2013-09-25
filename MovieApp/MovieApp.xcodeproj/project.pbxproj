@@ -25,6 +25,8 @@
 		8AC0D0F21786FDE500352E10 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC0D0F11786FDE500352E10 /* Default-568h@2x.png */; };
 		8AC0D0FF1787040A00352E10 /* MATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0D0FE1787040A00352E10 /* MATableViewController.m */; };
 		8AC0D1021787044700352E10 /* MAMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0D1011787044600352E10 /* MAMovieCell.m */; };
+		8AE7833017F220FF005E9FCD /* fresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE7832E17F220FF005E9FCD /* fresh.png */; };
+		8AE7833117F220FF005E9FCD /* rotten.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE7832F17F220FF005E9FCD /* rotten.png */; };
 		BCB0016035684878A4C17B4C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E32461618D4DF5AB65D599 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		8AC0D0FE1787040A00352E10 /* MATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MATableViewController.m; sourceTree = "<group>"; };
 		8AC0D1001787044600352E10 /* MAMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAMovieCell.h; sourceTree = "<group>"; };
 		8AC0D1011787044600352E10 /* MAMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMovieCell.m; sourceTree = "<group>"; };
+		8AE7832E17F220FF005E9FCD /* fresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fresh.png; sourceTree = "<group>"; };
+		8AE7832F17F220FF005E9FCD /* rotten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotten.png; sourceTree = "<group>"; };
 		B0E32461618D4DF5AB65D599 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3507B8720554074AA944EB4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +135,7 @@
 		8AC0D0E11786FDE500352E10 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				8AE7832C17F220FF005E9FCD /* Resources */,
 				42BC2D5017F0FC8B004104E3 /* Networking */,
 				8AC0D0EA1786FDE500352E10 /* AppDelegate.h */,
 				8AC0D0EB1786FDE500352E10 /* AppDelegate.m */,
@@ -158,6 +163,23 @@
 				8AC0D0F11786FDE500352E10 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8AE7832C17F220FF005E9FCD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8AE7832D17F220FF005E9FCD /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8AE7832D17F220FF005E9FCD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8AE7832E17F220FF005E9FCD /* fresh.png */,
+				8AE7832F17F220FF005E9FCD /* rotten.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +237,10 @@
 			files = (
 				8AC0D0E61786FDE500352E10 /* InfoPlist.strings in Resources */,
 				8AC0D0EE1786FDE500352E10 /* Default.png in Resources */,
+				8AE7833117F220FF005E9FCD /* rotten.png in Resources */,
 				8AC0D0F01786FDE500352E10 /* Default@2x.png in Resources */,
 				8AC0D0F21786FDE500352E10 /* Default-568h@2x.png in Resources */,
+				8AE7833017F220FF005E9FCD /* fresh.png in Resources */,
 				5BF4850C17889A2F00C2C57D /* Icon.png in Resources */,
 				5BFCFE6717F17D3B007147FE /* Storyboard.storyboard in Resources */,
 				5BF4850E17889A3C00C2C57D /* Icon@2x.png in Resources */,

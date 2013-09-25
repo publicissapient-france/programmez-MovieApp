@@ -1,6 +1,8 @@
 #import "MAMovieAppAPIClient.h"
 #import "XBReloadableArrayDataSource.h"
+#import "XBReloadableObjectDataSource.h"
 #import "XBJsonToArrayDataMapper.h"
+#import "XBJsonToObjectDataMapper.h"
 #import "XBHttpJsonDataLoader.h"
 #import "MAMovie.h"
 #import "XBArrayDataSource+protected.h"
@@ -48,6 +50,31 @@ static NSString *kMAMovieAppAPIBaseURLString = @"http://api.rottentomatoes.com/a
     }];
 
     return dataSource;
+}
+
+- (void) updateMovieData:(MAMovie *)movie withCallback:(void (^)(void))callback {
+    
+    // Get the path for the current movie
+    NSString *link = [movie.links[@"self"] stringByReplacingOccurrencesOfString:kMAMovieAppAPIBaseURLString withString:@""];
+    
+    // Instantiate an dataLoader from your HTTP client and a given resourcePath:
+    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:self resourcePath:[self rottenTomatoesUrlForPath:link]];
+    
+    // Instantiate an dataMapper, allowing the response to be deserialized to a given class (e.g. MAMovie):
+    XBJsonToObjectDataMapper * dataMapper = [XBJsonToObjectDataMapper mapperWithRootKeyPath:nil typeClass:[MAMovie class]];
+    
+    // Create the data source from the dataLoader and the dataMapper:
+    XBReloadableObjectDataSource *dataSource = [XBReloadableObjectDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
+    
+    [dataSource loadDataWithCallback:^{
+        
+        MAMovie *updatedMovie = (MAMovie*)dataSource.object;
+        movie.genres = [NSArray arrayWithArray:updatedMovie.genres];
+        
+        if (callback) {
+            callback();
+        }
+    }];
 }
 
 - (NSString *)rottenTomatoesUrlForPath:(NSString *)relativePath {

@@ -8,13 +8,17 @@
 
 #import "MAMovie.h"
 #import "MAPosters.h"
-
+#import "MAMovieAppAPIClient.h"
 
 @implementation MAMovie
 
 + (DCParserConfiguration *)mappings {
     DCParserConfiguration *config = [[DCParserConfiguration alloc] init];
     return config;
+}
+
+-(void) updateInfoWithCallback:(void (^)(void))callback {
+    [[MAMovieAppAPIClient sharedClient] updateMovieData:self withCallback:callback];
 }
 
 @end

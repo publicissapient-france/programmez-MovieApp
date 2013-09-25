@@ -22,4 +22,10 @@
 @property (nonatomic, strong) NSNumber *runtime;
 @property (nonatomic, strong) NSNumber *year;
 @property (nonatomic, strong) MAPosters *posters;
+@property (nonatomic, strong) NSDictionary *ratings;
+@property (nonatomic, strong) NSArray *genres;
+@property (nonatomic, strong) NSDictionary *links;
+
+-(void) updateInfoWithCallback:(void (^)(void))callback;
+
 @end

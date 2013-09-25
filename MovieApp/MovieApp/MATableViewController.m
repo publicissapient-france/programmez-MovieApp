@@ -12,6 +12,7 @@
 #import "MAMovie.h"
 #import "UIImageView+AFNetworking.h"
 #import "MAPosters.h"
+#import "MAMovieDetailsViewController.h"
 
 @interface MATableViewController ()
 
@@ -110,6 +111,11 @@
     return YES;
 }
 */
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    MAMovieDetailsViewController *mVC = segue.destinationViewController;
+    [mVC setMovie:self.movies[self.tableView.indexPathForSelectedRow.row]];
+}
 
 #pragma mark - Table view delegate
 
