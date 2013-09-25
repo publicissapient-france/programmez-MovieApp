@@ -16,7 +16,6 @@
 
 @interface MATableViewController ()
 
-// TODO: explain
 @property (nonatomic, strong) NSArray *movies;
 
 @end
@@ -31,12 +30,6 @@
         self.movies = array;
         [self.tableView reloadData];
     }];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +60,6 @@
     MAMovie *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie.title;
     cell.subtitleLabel.text = [movie.year stringValue];
-
     [cell.thumbnail setImageWithURL:[NSURL URLWithString:movie.posters.thumbnail] placeholderImage:nil];
     
     return cell;

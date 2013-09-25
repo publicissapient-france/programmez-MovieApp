@@ -1,13 +1,10 @@
-#import "AFHTTPClient.h"
 #import "XBHttpClient.h"
 
-@class XBReloadableArrayDataSource;
-
-typedef void(^MACallbackBlock)(NSArray *array);
+typedef void(^MABoxOfficeCallbackBlock)(NSArray *array);
 
 @interface MAMovieAppAPIClient : XBHttpClient
 
 + (MAMovieAppAPIClient *)sharedClient;
-- (XBReloadableArrayDataSource *)downloadBoxOfficeWithCallback:(MACallbackBlock)callback;
+- (void)downloadBoxOfficeWithCallback:(MABoxOfficeCallbackBlock)callback;
 
 @end

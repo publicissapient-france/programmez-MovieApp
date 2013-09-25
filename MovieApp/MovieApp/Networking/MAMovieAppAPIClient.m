@@ -30,24 +30,22 @@ static NSString *kMAMovieAppAPIBaseURLString = @"http://api.rottentomatoes.com/a
     return self;
 }
 
-- (XBReloadableArrayDataSource *)downloadBoxOfficeWithCallback:(MACallbackBlock)callback {
+- (void)downloadBoxOfficeWithCallback:(MABoxOfficeCallbackBlock)callback {
 
     // Instantiate an dataLoader from your HTTP client and a given resourcePath:
-    XBHttpJsonDataLoader *dataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:self resourcePath:[self rottenTomatoesUrlForPath:kBoxOfficePath]];
+    XBHttpJsonDataLoader *boxOfficeDataLoader = [XBHttpJsonDataLoader dataLoaderWithHttpClient:self resourcePath:[self rottenTomatoesUrlForPath:kBoxOfficePath]];
 
     // Instantiate an dataMapper, allowing the response to be deserialized to a given class (e.g. MAMovie):
-    XBJsonToArrayDataMapper * dataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"movies" typeClass:[MAMovie class]];
+    XBJsonToArrayDataMapper *boxOfficeDataMapper = [XBJsonToArrayDataMapper mapperWithRootKeyPath:@"movies" typeClass:[MAMovie class]];
 
     // Create the data source from the dataLoader and the dataMapper:
-    XBReloadableArrayDataSource *dataSource = [XBReloadableArrayDataSource dataSourceWithDataLoader:dataLoader dataMapper:dataMapper];
+    XBReloadableArrayDataSource *dataSource = [XBReloadableArrayDataSource dataSourceWithDataLoader:boxOfficeDataLoader dataMapper:boxOfficeDataMapper];
 
     [dataSource loadDataWithCallback:^{
         if (callback) {
             callback(dataSource.array);
         }
     }];
-
-    return dataSource;
 }
 
 - (NSString *)rottenTomatoesUrlForPath:(NSString *)relativePath {
@@ -76,7 +74,5 @@ static NSString *kMAMovieAppAPIBaseURLString = @"http://api.rottentomatoes.com/a
 
     return urlString;
 }
-
-
 
 @end
